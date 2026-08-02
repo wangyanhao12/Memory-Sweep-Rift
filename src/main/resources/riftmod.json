@@ -1,0 +1,8 @@
+{
+  "id": "memorysweep",
+  "name": "MemorySweep",
+  "authors": ["Your Name"],
+  "listeners": [
+    "com.memorysweep.MemorySweepListener"
+  ]
+}
