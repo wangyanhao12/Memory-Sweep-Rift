@@ -1,11 +1,11 @@
 buildscript {
-        repositories {
+    repositories {
         mavenCentral()
         maven { url 'https://www.jitpack.io' }
+        maven { url 'https://files.minecraftforge.net/maven' }
     }
-    
     dependencies {
-        implementation 'com.github.Chocohead:Rift:d4cd7b0'
+        classpath 'com.github.Chocohead:ForgeGradle:moderniser-SNAPSHOT'
     }
 }
 
@@ -16,27 +16,20 @@ group = 'com.memorysweep'
 version = '1.0.0'
 archivesBaseName = 'memorysweep'
 
-// 1.13.2 时代的 Minecraft 仍然要求 Java 8
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    // Rift 本体和它依赖的 Mixin fork 托管在这里
-    maven { url 'https://www.dimdev.org/maven/' }
     maven { url 'https://www.jitpack.io' }
-    // Rift 部分传递依赖(如 OptiFine 兼容层用到的库)托管在这个第三方仓库
-    maven { url 'http://repo.strezz.org/artifactory/list/Strezz-Central' }
 }
 
 dependencies {
-    // "jitpack-SNAPSHOT" 对应 Rift 仓库里的 jitpack 分支,":dev" 表示未重映射的开发版
-    implementation 'com.github.Chocohead:Rift:jitpack-SNAPSHOT:dev'
+    implementation 'com.github.Chocohead:Rift:d4cd7b0'
 }
 
 minecraft {
     version = '1.13.2'
-    // MCP 快照映射版本,和 Rift 官方示例保持一致
     mappings = 'snapshot_20181130'
     runDir = 'run'
     tweakClass = 'org.dimdev.riftloader.launch.RiftLoaderClientTweaker'
