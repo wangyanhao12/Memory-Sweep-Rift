@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.Chocohead:Rift:d4cd7b0'
+    implementation 'com.github.Chocohead:Rift:d4cd7b00baf9a699356fb7aed036bd0d426cbf30'
 }
 
 minecraft {
