@@ -2,13 +2,10 @@ buildscript {
     repositories {
         mavenCentral()
         maven { url 'https://www.jitpack.io' }
-        flatDir {
-            dirs 'libs'
-        }
+        maven { url 'https://files.minecraftforge.net/maven' }
     }
-    
     dependencies {
-        implementation files('libs/Rift-1.0.4-106.jar')
+        classpath 'com.github.Chocohead:ForgeGradle:moderniser-SNAPSHOT'
     }
 }
 
@@ -25,10 +22,13 @@ targetCompatibility = 1.8
 repositories {
     mavenCentral()
     maven { url 'https://www.jitpack.io' }
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 dependencies {
-    implementation 'com.github.chocohead:rift:2c400465c7e0b5abf4e643372fbd9a7e6d39e3ff'
+    implementation files('libs/Rift-1.0.4-106.jar')
 }
 
 minecraft {
