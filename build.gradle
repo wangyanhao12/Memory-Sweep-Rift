@@ -2,10 +2,13 @@ buildscript {
     repositories {
         mavenCentral()
         maven { url 'https://www.jitpack.io' }
-        maven { url 'https://files.minecraftforge.net/maven' }
+        flatDir {
+            dirs 'libs'
+        }
     }
+    
     dependencies {
-        classpath 'com.github.Chocohead:ForgeGradle:moderniser-SNAPSHOT'
+        implementation files('libs/Rift-1.0.4-106.jar')
     }
 }
 
