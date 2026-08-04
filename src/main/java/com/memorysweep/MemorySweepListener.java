@@ -6,7 +6,7 @@ import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextComponentString;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.dimdev.rift.listener.CommandAdder;
@@ -63,18 +63,18 @@ public class MemorySweepListener implements MinecraftStartListener, ServerTickab
 
     private int executeSweep(CommandContext<CommandSource> context) {
         if (memoryMonitor == null) {
-            context.getSource().sendErrorMessage(new StringTextComponent("MemorySweep 尚未初始化完成,请稍后再试。"));
+            context.getSource().sendErrorMessage(new TextComponentString("MemorySweep 尚未初始化完成,请稍后再试。"));
             return 0;
         }
 
         MemoryMonitor.CleanupResult result = memoryMonitor.performCleanup(MemoryMonitor.CleanupReason.MANUAL);
-        context.getSource().sendFeedback(new StringTextComponent(result.toChatText()), true);
+        context.getSource().sendFeedback(new TextComponentString(result.toChatText()), true);
         return 1;
     }
 
     private int executeStatus(CommandContext<CommandSource> context) {
         if (memoryMonitor == null || config == null) {
-            context.getSource().sendErrorMessage(new StringTextComponent("MemorySweep 尚未初始化完成,请稍后再试。"));
+            context.getSource().sendErrorMessage(new TextComponentString("MemorySweep 尚未初始化完成,请稍后再试。"));
             return 0;
         }
 
@@ -91,7 +91,7 @@ public class MemorySweepListener implements MinecraftStartListener, ServerTickab
                         ? ("已启用(阈值 " + config.memoryUsageThresholdPercent + "%,冷却 " + config.usageCheckCooldownSeconds + " 秒)")
                         : "已禁用");
 
-        context.getSource().sendFeedback(new StringTextComponent(status), false);
+        context.getSource().sendFeedback(new TextComponentString(status), false);
         return 1;
     }
 }
