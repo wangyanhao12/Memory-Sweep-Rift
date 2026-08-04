@@ -28,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    deobfCompile files('lib/Rift-1.0.4-106.jar')
+    deobfCompile ':Rift:1.0.4-106'
 }
 
 minecraft {
