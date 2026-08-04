@@ -23,12 +23,12 @@ repositories {
     mavenCentral()
     maven { url 'https://www.jitpack.io' }
     flatDir {
-        dirs 'libs'
+        dirs 'lib'
     }
 }
 
 dependencies {
-    implementation files('libs/Rift-1.0.4-106.jar')
+    implementation files('lib/Rift-1.0.4-106.jar')
 }
 
 minecraft {
